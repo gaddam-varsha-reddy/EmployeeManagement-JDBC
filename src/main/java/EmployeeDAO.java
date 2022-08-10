@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +23,49 @@ public class EmployeeDAO {
         }
         return EmployeeList;
     }
+    public void addEmployee(Employee employee){
+        Connection connection = MySQLConnectionUtility.getConnection();
+        String sql = "insert into Employee values(?,?,?,?)";
+        try{
+            PreparedStatement ps =connection.prepareStatement(sql);
+            ps.setInt(1,employee.getId());
+            ps.setString(2,employee.getName());
+            ps.setInt(3,employee.getDepId());
+            ps.setInt(4,employee.getAddressId());
+            ps.execute();
+        } catch (SQLException e) {
+            System.out.println("Exception found");
+        }
+        }
+    public void updateEmployee(Employee employee){
+        Connection connection = MySQLConnectionUtility.getConnection();
+        String sql = "update employee set name=?,dep_id=?,address_id=? where id=?";
+        try{
+            PreparedStatement ps =connection.prepareStatement(sql);
+            ps.setString(1,employee.getName());
+            ps.setInt(2,employee.getDepId());
+            ps.setInt(3,employee.getAddressId());
+            ps.setInt(4,employee.getId());
+            ps.execute();
+        } catch (SQLException e) {
+            System.out.println("Exception found");
+        }
+    }
+    public void deleteEmployee(int id){
+        Connection connection = MySQLConnectionUtility.getConnection();
+        String sql = "DELETE FROM Employee WHERE id=?";
+        try{
+            PreparedStatement ps =connection.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.execute();
+        } catch (SQLException e) {
+            System.out.println("Exception found");
+        }
+    }
 
-}
+    public String getAddressOfEmployee(int id){
+        return " ";
+    }
+    }
+
+
