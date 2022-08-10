@@ -1,8 +1,15 @@
-import java.sql.*;
+package com.dao;
 
-public class AddressDAO {
-    public String getAddressOfEmployee(int id){
-        String sql="select name from address where id in (select address_id from employee where id=" + id +")";
+import com.connectivity.MySQLConnectionUtility;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DepartmentDAO {
+    public String getDepartmentNameOfEmployee(int id){
+        String sql="select name from department where id in (select dep_id from employee where id= " +id+")";
         Connection connection = MySQLConnectionUtility.getConnection();
         try {
             //PreparedStatement ps =connection.prepareStatement(sql);
@@ -18,6 +25,6 @@ public class AddressDAO {
         catch (SQLException e) {
             System.out.println("Exception found");
         }
-        return "exception";
+        return "Exception";
     }
 }

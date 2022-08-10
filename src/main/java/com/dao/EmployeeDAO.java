@@ -1,3 +1,8 @@
+package com.dao;
+
+import com.connectivity.MySQLConnectionUtility;
+import model.Employee;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,10 +67,6 @@ public class EmployeeDAO {
             System.out.println("Exception found");
         }
     }
-
-    public String getAddressOfEmployee(int id){
-        return " ";
-    }
-    }
+ }
 
 

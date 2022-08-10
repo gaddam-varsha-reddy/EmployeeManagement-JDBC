@@ -1,10 +1,12 @@
+package model;
+
 public class Address {
     private int id;
     private String name;
 
-    public Address(int id,String name) {
+    public Address(int id, String name) {
         this.id = id;
-        this.name=name;
+        this.name = name;
     }
 
     public int getId() {
@@ -22,4 +24,5 @@ public class Address {
     public void setName(String name) {
         this.name = name;
     }
+
 }

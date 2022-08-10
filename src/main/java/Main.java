@@ -1,3 +1,9 @@
+import com.dao.AddressDAO;
+import com.dao.DepartmentDAO;
+import com.dao.EmployeeDAO;
+import model.Address;
+import model.Employee;
+
 import java.util.List;
 import java.util.Scanner;
 
